@@ -12,6 +12,17 @@ namespace APIFarm.Services
         {
             _workerRepository = workerRepository;
         }
+
+        public bool CreateWorker(Worker worker)
+        {
+            return _workerRepository.CreateWorker(worker);
+        }
+
+        public bool DeleteWorker(int id)
+        {
+            return _workerRepository.DeleteWorker(_workerRepository.GetWorker(id));
+        }
+
         public Worker GetWorker(int id)
         {
             return _workerRepository.GetWorker(id);
@@ -25,6 +36,11 @@ namespace APIFarm.Services
         public ICollection<Worker> GetWorkersInFarm(int farmId)
         {
             return _workerRepository.GetWorkersInFarm(farmId);
+        }
+
+        public bool UpdateWorker(Worker worker)
+        {
+            return _workerRepository.UpdateWorker(worker);
         }
     }
 }

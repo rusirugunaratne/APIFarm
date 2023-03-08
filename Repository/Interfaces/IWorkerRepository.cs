@@ -7,5 +7,8 @@ namespace APIFarm.Repository.Interfaces
         ICollection<Worker> GetWorkers();
         Worker GetWorker(int id);
         ICollection<Worker> GetWorkersInFarm(int farmId);
+        bool CreateWorker(Worker worker);
+        bool UpdateWorker(Worker worker);
+        bool DeleteWorker(Worker worker);
     }
 }

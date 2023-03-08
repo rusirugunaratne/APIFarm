@@ -1,4 +1,5 @@
 ﻿using APIFarm.DTO;
+using APIFarm.Models;
 using APIFarm.Services;
 using APIFarm.Services.Interfaces;
 using AutoMapper;
@@ -35,6 +36,27 @@ namespace APIFarm.Controllers
             var worker = _mapper.Map<FarmDto>(_workerService.GetWorker(id));
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
+            return Ok(worker);
+        }
+
+        [HttpPut("{id}")]
+        public IActionResult UpdateWorker(WorkerDto worker)
+        {
+            _workerService.UpdateWorker(_mapper.Map<Worker>(worker));
+            return Ok(worker);
+        }
+
+        [HttpDelete("{id}")]
+        public IActionResult DeleteWorker(int id)
+        {
+            _workerService.DeleteWorker(id);
+            return Ok(id);
+        }
+
+        [HttpPost]
+        public IActionResult CreateFarm(WorkerDto worker)
+        {
+            _workerService.CreateWorker(_mapper.Map<Worker>(worker));
             return Ok(worker);
         }
     }
