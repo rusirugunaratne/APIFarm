@@ -1,4 +1,5 @@
 ﻿using APIFarm.DTO;
+using APIFarm.Models;
 using APIFarm.Services.Interfaces;
 using AutoMapper;
 using Microsoft.AspNetCore.Http;
@@ -36,5 +37,27 @@ namespace APIFarm.Controllers
                 return BadRequest(ModelState);
             return Ok(farm);
         }
+
+        [HttpPut("{id}")]
+        public IActionResult UpdateFarm(FarmDto farm) {
+            _farmService.UpdateFarm(_mapper.Map<Farm>(farm));
+            return Ok(farm);
+        }
+
+        [HttpDelete("{id}")]
+        public IActionResult DeleteFarm(int id)
+        {
+            _farmService.DeleteFarm(id);
+            return Ok(id);
+        }
+
+        [HttpPost]
+        public IActionResult CreateFarm(FarmDto farm)
+        {
+            _farmService.CreateFarm(_mapper.Map<Farm>(farm));
+            return Ok(farm);
+        }
+
+
     }
 }

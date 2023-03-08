@@ -13,6 +13,24 @@ namespace APIFarm.Repository
             _context = context;
         }
 
+        public bool Save()
+        {
+            var saved = _context.SaveChanges();
+            return saved > 0 ? true : false;
+        }
+
+        public bool CreateWorker(Worker worker)
+        {
+            _context.Workers.Add(worker);
+            return Save();
+        }
+
+        public bool DeleteWorker(Worker worker)
+        {
+            _context.Remove(worker);
+            return Save();
+        }
+
         public Worker GetWorker(int id)
         {
             return _context.Workers.Where(w => w.Id == id).FirstOrDefault();
@@ -26,6 +44,12 @@ namespace APIFarm.Repository
         public ICollection<Worker> GetWorkersInFarm(int farmId)
         {
             return _context.Workers.Where(w => w.FarmId == farmId).ToList();
+        }
+
+        public bool UpdateWorker(Worker worker)
+        {
+            _context.Update(worker);
+            return Save();
         }
     }
 }

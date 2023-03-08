@@ -12,6 +12,17 @@ namespace APIFarm.Services
         {
             _farmRepository = farmRepository;
         }
+
+        public bool CreateFarm(Farm farm)
+        {
+            return _farmRepository.CreateFarm(farm);
+        }
+
+        public bool DeleteFarm(int id)
+        {
+            return _farmRepository.DeleteFarm(_farmRepository.GetFarm(id));
+        }
+
         public Farm GetFarm(int id)
         {
             return _farmRepository.GetFarm(id);
@@ -20,6 +31,11 @@ namespace APIFarm.Services
         public ICollection<Farm> GetFarms()
         {
             return _farmRepository.GetFarms();
+        }
+
+        public bool UpdateFarm(Farm farm)
+        {
+            return _farmRepository.UpdateFarm(farm);
         }
     }
 }
