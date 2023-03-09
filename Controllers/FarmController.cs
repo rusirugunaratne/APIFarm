@@ -39,8 +39,8 @@ namespace APIFarm.Controllers
         }
 
         [HttpPut("{id}")]
-        public IActionResult UpdateFarm(FarmDto farm) {
-            _farmService.UpdateFarm(_mapper.Map<Farm>(farm));
+        public IActionResult UpdateFarm(int id, FarmDto farm) {
+            _farmService.UpdateFarm(id,_mapper.Map<Farm>(farm));
             return Ok(farm);
         }
 

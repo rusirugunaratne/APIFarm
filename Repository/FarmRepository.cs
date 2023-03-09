@@ -35,7 +35,7 @@ namespace APIFarm.Repository
             return Save();
         }
 
-        public bool UpdateFarm(Farm farm)
+        public bool UpdateFarm(int id, Farm farm)
         {
             _context.Update(farm);
             return Save();

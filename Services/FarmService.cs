@@ -33,9 +33,9 @@ namespace APIFarm.Services
             return _farmRepository.GetFarms();
         }
 
-        public bool UpdateFarm(Farm farm)
+        public bool UpdateFarm(int id, Farm farm)
         {
-            return _farmRepository.UpdateFarm(farm);
+            return _farmRepository.UpdateFarm(id,farm);
         }
     }
 }

@@ -7,7 +7,7 @@ namespace APIFarm.Services.Interfaces
         ICollection<Farm> GetFarms();
         Farm GetFarm(int id);
         bool CreateFarm(Farm farm);
-        bool UpdateFarm(Farm farm);
+        bool UpdateFarm(int id, Farm farm);
         bool DeleteFarm(int id);
     }
 }
