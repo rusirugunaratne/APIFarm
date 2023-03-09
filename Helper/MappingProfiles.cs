@@ -8,8 +8,8 @@ namespace APIFarm.Helper
     {
         public MappingProfiles()
         {
-            CreateMap<Farm, FarmDto>();
-            CreateMap<Worker, WorkerDto>();
+            CreateMap<Farm, FarmDto>().ReverseMap();
+            CreateMap<Worker, WorkerDto>().ReverseMap();
         }
     }
 }
