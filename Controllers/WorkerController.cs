@@ -24,7 +24,7 @@ namespace APIFarm.Controllers
         [HttpGet]
         public IActionResult GetWorkers()
         {
-            var workers = _mapper.Map<List<FarmDto>>(_workerService.GetWorkers());
+            var workers = _mapper.Map<List<WorkerDto>>(_workerService.GetWorkers());
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
             return Ok(workers);
