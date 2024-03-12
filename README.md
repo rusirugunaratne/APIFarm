@@ -1,4 +1,4 @@
-# Aqua
+# AquaPI
 
 Aqua is a robust and scalable API built using ASP.NET Core and Entity Framework, designed specifically for managing fish farm operations. It follows the Clean Architecture principles to ensure the API is maintainable, testable, and easy to evolve over time. Aqua provides a comprehensive set of CRUD operations to manage fish farms effectively, making it an essential tool for fish farm owners and operators.
 
